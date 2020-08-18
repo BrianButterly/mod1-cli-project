@@ -7,12 +7,12 @@ user-< OrderItem >-MenuItem
 ____________________________________
 ##user Stories
 
-User will be able to:
+👨🏻‍💻User will be able to:
 
-make an account (Create)
+make an account (Create)/login as a user?
 browse menu items (Read)
 view prices on the menu (Read)
-make an order (Create)                 
+make an order (Create)
 view their order (Read)
 change their order (Update)
 cancel their order (Delete)
@@ -21,7 +21,7 @@ ____________________________________
 
 User:
   t.string :name
-  t.integer :age
+  <!-- t.integer :age -->
   t.timestamp
 
 MenuItem
@@ -34,3 +34,4 @@ OrderItem
   user_id
   MenuItem_id
 ____________________________________
+

@@ -5,10 +5,10 @@ MenuItem.destroy_all
 
 # User Instances
 puts "🤯 Seeding Users"
-u1 = User.create(name: "Brian", age: 34)
-u2 = User.create(name: "Mizzy", age: 22)
-u3 = User.create(name: "Victor", age: 26)
-u4 = User.create(name: "Ian", age: 100)
+u1 = User.create(name: "Brian")
+u2 = User.create(name: "Mizzy")
+u3 = User.create(name: "Victor")
+u4 = User.create(name: "Ian")
 
 # Menu Item Instances
 puts "🌮 Seeding Menu Items"
