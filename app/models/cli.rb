@@ -28,7 +28,11 @@ class Cli
         case input
             when "1"
                 puts "#{@current_user.name}'s Profile Page"
-                puts "1. Previous Orders"
+
+                puts "1. previous orders"
+                    puts @current_user.view_order
+            
+               
                 puts "2. Exit"
                 print "Enter your selection: "
                 input = gets.chomp
