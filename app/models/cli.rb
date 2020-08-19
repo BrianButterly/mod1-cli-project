@@ -42,12 +42,23 @@ class Cli
                 input = gets.chomp
             when "3"
                 puts "#{@current_user.name}, Select Menu Items to make an order, or Exit to return to Main Menu"
-                # binding.pry
-                # MenuItem.all
-                # puts "1. Select Menu Items"
-                # puts "2. Exit"
-                # print "Enter your selection: "
-                # input = gets.chomp
+                puts "1. Select Menu Items"
+                puts "2. Exit"
+                print "Enter your selection: "
+                input = gets.chomp
+                clear!
+        end
+        case input
+            when "1"
+                MenuItem.all.each do |menu_item_instance|
+                menu_item_instance.display
+                end
+                print "Enter your selection: "
+                input = gets.chomp
         end
     end     
 end # End of class
+
+# def create_order(name, price, food_type)
+#     MenuItem.create(name: name, price: price, food_type: food_type)
+# end

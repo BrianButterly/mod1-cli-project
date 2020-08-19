@@ -21,17 +21,16 @@ ____________________________________
 
 User:
   t.string :name
-  <!-- t.integer :age -->
   t.timestamp
 
-MenuItem
+Menu
   t.integer :price
   t.string :name
   t.string :food_type
   t.timestamp
 
-OrderItem
+Order
   user_id
-  MenuItem_id
+  Menu_id
 ____________________________________
 

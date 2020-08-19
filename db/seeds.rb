@@ -1,4 +1,5 @@
 
+
 OrderItem.destroy_all
 User.destroy_all
 MenuItem.destroy_all
@@ -31,12 +32,3 @@ o7 = OrderItem.create(user_id: u1.id, menu_item_id: m1.id)
 o8 = OrderItem.create(user_id: u1.id, menu_item_id: m3.id)
 
 puts "Schwifty"
-
-
-
-
-
-
-
-
-
