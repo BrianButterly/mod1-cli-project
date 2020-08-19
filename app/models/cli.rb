@@ -20,7 +20,6 @@ class Cli
         puts "1. View profile"          
         puts "2. View Menu Items"
         puts "3. Make an Order"
-        puts "4. Delete an order"   
         print "Enter your selection: "
         input = gets.chomp
         clear!
@@ -30,12 +29,23 @@ class Cli
                 puts "#{@current_user.name}'s Profile Page"
 
                 puts "1. previous orders"
-                    puts @current_user.view_order
+                puts @current_user.view_order
+                
+                    # # puts "Remove order item."
+                    # # puts "Here's a list of your order: "
+                    # OrderItem.all.each do |order|
+                    # puts "#{@current_user.view_order}."
+                    # end
+                    # # puts "Please enter order item ID"
+                    # # order_item_id = gets.chomp
+                    # OrderItem.destroy(order_item_id: order_item.id, user_id: @current_user.id)
+                
             
-               
-                puts "2. Exit"
-                print "Enter your selection: "
-                input = gets.chomp
+                    puts "2. Exit"
+                    print "Enter your selection: "
+                    input = gets.chomp
+                    
+                
             when "2"
                 puts "menu items"
                 MenuItem.all.each do |menu_item_instance|
@@ -59,10 +69,9 @@ class Cli
                 end
                 print "Enter your selection: "
                 input = gets.chomp
+                item = MenuItem.find_by(name: input)
+                OrderItem.create(menu_item_id: item.id, user_id: @current_user.id)
         end
     end     
 end # End of class
 
-# def create_order(name, price, food_type)
-#     MenuItem.create(name: name, price: price, food_type: food_type)
-# end
