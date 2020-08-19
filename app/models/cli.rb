@@ -12,7 +12,33 @@ class Cli
         clear!
         main_menu
     end
+def profile_menu
+    puts "#{@current_user.name}'s Profile Page"
 
+    puts "1. previous orders"
+    
+    
+        # # puts "Remove order item."
+        # # puts "Here's a list of your order: "
+        # OrderItem.all.each do |order|
+        # puts "#{@current_user.view_order}."
+        # end
+        # # puts "Please enter order item ID"
+        # # order_item_id = gets.chomp
+        # OrderItem.destroy(order_item_id: order_item.id, user_id: @current_user.id)
+    
+
+        puts "2. Exit"
+        print "Enter your selection: "
+        input = gets.chomp
+        case input
+        when "1" 
+            puts "Previous Orders"
+            puts @current_user.view_order
+        when "2"
+            main_menu
+        end
+end
     def main_menu
         puts "Hi #{@current_user.name}!"
         puts "This is the Main Menu"
@@ -23,27 +49,9 @@ class Cli
         print "Enter your selection: "
         input = gets.chomp
         clear!
-      
         case input
             when "1"
-                puts "#{@current_user.name}'s Profile Page"
-
-                puts "1. previous orders"
-                puts @current_user.view_order
-                
-                    # # puts "Remove order item."
-                    # # puts "Here's a list of your order: "
-                    # OrderItem.all.each do |order|
-                    # puts "#{@current_user.view_order}."
-                    # end
-                    # # puts "Please enter order item ID"
-                    # # order_item_id = gets.chomp
-                    # OrderItem.destroy(order_item_id: order_item.id, user_id: @current_user.id)
-                
-            
-                    puts "2. Exit"
-                    print "Enter your selection: "
-                    input = gets.chomp
+                   profile_menu
                     
                 
             when "2"
@@ -62,16 +70,16 @@ class Cli
                 input = gets.chomp
                 clear!
         end
-        case input
-            when "1"
-                MenuItem.all.each do |menu_item_instance|
-                menu_item_instance.display
-                end
-                print "Enter your selection: "
-                input = gets.chomp
-                item = MenuItem.find_by(name: input)
-                OrderItem.create(menu_item_id: item.id, user_id: @current_user.id)
-        end
+        # case input
+        #     when "1"
+        #         MenuItem.all.each do |menu_item_instance|
+        #         menu_item_instance.display
+        #         end
+        #         print "Enter your selection: "
+        #         input = gets.chomp
+        #         item = MenuItem.find_by(name: input)
+        #         OrderItem.create(menu_item_id: item.id, user_id: @current_user.id)
+        # end
     end     
 end # End of class
 
