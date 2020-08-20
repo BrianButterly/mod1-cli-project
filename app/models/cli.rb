@@ -5,7 +5,19 @@ class Cli
     end
 
     def login
-        clear! 
+        clear!
+        puts "
+
+        ███████╗██╗   ██╗███╗   ██╗██╗  ██╗██╗   ██╗     ███╗   ███╗██╗   ██╗███╗   ██╗ ██████╗██╗  ██╗
+        ██╔════╝██║   ██║████╗  ██║██║ ██╔╝╚██╗ ██╔╝     ████╗ ████║██║   ██║████╗  ██║██╔════╝██║  ██║
+        █████╗  ██║   ██║██╔██╗ ██║█████╔╝  ╚████╔╝█████╗██╔████╔██║██║   ██║██╔██╗ ██║██║     ███████║
+        ██╔══╝  ██║   ██║██║╚██╗██║██╔═██╗   ╚██╔╝ ╚════╝██║╚██╔╝██║██║   ██║██║╚██╗██║██║     ██╔══██║
+        ██║     ╚██████╔╝██║ ╚████║██║  ██╗   ██║        ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║╚██████╗██║  ██║
+        ╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝        ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝
+        
+        
+        "
+        `say -v"Victoria" "Lets Get Funky!"`
         puts "Welcome to 🥩FunkyMunch!"
         print "Enter name to login: "
         user_name = gets.chomp
@@ -13,42 +25,41 @@ class Cli
         clear!
         main_menu
     end
-
-    def menu_items
-        puts "Menu 🍴 Items"
+    
+    def main_menu
+        puts "Main 🍔 Menu"
         puts
-        MenuItem.all.each do |menu_item_instance|
-        menu_item_instance.display
-        end
+        puts "Hi #{@current_user.name}!"
+        puts "What would you like to do next?"
         puts
-        puts "1. Return to Main Menu🚪"
-        puts
-        print "Enter your selection: "
-        input = gets.chomp
-        clear!
-        main_menu
-    end
-
-    def previous_orders
-        puts "Previous 🗄  Orders"
-        puts
-        puts @current_user.view_order
-        puts
-        puts "1. Edit order"
-        puts "2. Delete order"
-        puts "3. Return to Main Menu🚪"
+        puts "1. View profile 😃"          
+        puts "2. View menu items 🥞🥗🍔"
+        puts "3. Make an order 💻"
+        puts "4. Log out🚪"
         puts
         print "Enter your selection: "
         input = gets.chomp
         clear!
         case input
-        when "1"
-            change_order
-        when "2"
-            delete_previous_order
-        when "3"
-            main_menu
-        end
+            when "1"
+                profile
+            when "2"
+                menu_items
+            when "3"
+                order_menu
+            when "4"
+                puts "Have a nice day #{@current_user.name}!"
+                puts
+                puts "🥩🍔🍗 Stay Funky 🍗🍔🥩
+                
+                "
+                `say -v"Victoria" "Stay funky my friend"`
+                puts "Creators: Brian Butterly, Victor Manzanilla and MaryElizabeth Gonzales(Mizzy)"
+                puts "Flatiron Mod 1 Cli Project
+                "
+                puts "Thanks All!
+                "
+            end
     end
 
     def profile
@@ -69,10 +80,51 @@ class Cli
         end
     end
 
+    def menu_items
+        puts "Menu 🍴 Items"
+        puts
+        MenuItem.all.each do |menu_item_instance|
+        menu_item_instance.display #def in menu_item.rb
+        end
+        puts
+        puts "1. Return to Main Menu🚪"
+        puts
+        print "Enter your selection: "
+        input = gets.chomp
+        clear!
+        main_menu
+    end
+
+    def previous_orders
+        puts "Previous 🗄  Orders"
+        puts
+        puts @current_user.view_order #def in user.rb
+        puts
+        puts "1. Edit order"
+        puts "2. Delete order"
+        puts "3. Return to Main Menu🚪"
+        puts
+        print "Enter your selection: "
+        input = gets.chomp
+        clear!
+        case input
+        when "1"
+            # menu_items
+            # print "Enter new order_item:"
+            # replace = gets.chomp
+            # OrderItem.update(song_id, name: replace)
+            # @current_user.change_order
+        when "2"
+            # @current_user.delete_previous_order
+        when "3"
+            main_menu
+        end
+    end
+
     def make_order
         puts "type the name of the menu item you would like" 
         MenuItem.all.each do |menu_item_instance|
-        menu_item_instance.display
+        menu_item_instance.display #def in menu_items.rb
         end
         puts
         print "Enter your selection (case sensitive): "
@@ -99,37 +151,7 @@ class Cli
         end
     end
 
-    def main_menu
-        puts "Main 🍔 Menu"
-        puts
-        puts "Hi #{@current_user.name}!"
-        puts "What would you like to do next?"
-        puts
-        puts "1. View profile 😃"          
-        puts "2. View menu items 🥞🥗🍔"
-        puts "3. Make an order 💻"
-        puts "4. Log out🚪"
-        puts
-        print "Enter your selection: "
-        input = gets.chomp
-        clear!
-        case input
-            when "1"
-                profile
-            when "2"
-                menu_items
-            when "3"
-                order_menu
-            when "4"
-                puts "Have a nice day #{@current_user.name}!"
-                puts
-                puts "🥩🍔🍗 Stay Funky 🍗🍔🥩"
-                puts
-        end
-    end
-    
-    
-    
 end # End of class
 
 
+                                                                                  
