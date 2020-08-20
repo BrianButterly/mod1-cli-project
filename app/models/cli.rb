@@ -32,10 +32,13 @@ class Cli
                    profile
             when "2"
                 puts "Menu 🍴 Items"
+                puts
                 MenuItem.all.each do |menu_item_instance|
                 menu_item_instance.display
                 end
+                puts
                 puts "1. Exit🚪"
+                puts
                 print "Enter your selection: "
                 input = gets.chomp
                 clear!
