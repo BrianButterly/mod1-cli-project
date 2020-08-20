@@ -14,9 +14,11 @@ class User < ActiveRecord::Base
     end
 
     def delete_previous_order
+        binding.pry
+        item = MenuItem.find_by(menu_item_id: input)
         OrderItem.find_by(user_id: @current_user.id, menu_item_id: item.id)
-        order_item.id 
-        order_item.destroy
+        # order_item.id 
+        OrderItem.destroy(menu_item_id: item.id)
     end
 
     def change_order(order_id, new_menu_id)
