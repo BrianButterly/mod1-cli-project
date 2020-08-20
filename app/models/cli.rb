@@ -29,6 +29,26 @@ class Cli
         main_menu
     end
 
+    def previous_orders
+        puts "Previous 🗄  Orders"
+        puts
+        puts @current_user.view_order
+        puts
+        puts "1. Edit order"
+        puts "2. Delete order"
+        puts "3. Return to Main Menu🚪"
+        puts
+        print "Enter your selection: "
+        input = gets.chomp
+        clear!
+        case input
+        when "1"
+        when "2"
+        when "3"
+            main_menu
+        end
+    end
+
     def profile
         puts "#{@current_user.name}'s Profile 🌮 Page"
         puts
@@ -40,18 +60,7 @@ class Cli
         clear!
         case input
         when "1" 
-            puts "Previous 🗄 Orders"
-            puts
-            puts @current_user.view_order
-            puts
-            puts "1. Edit order"
-            puts "2. Delete order"
-            puts "3. Return to Main Menu🚪"
-            puts
-            print "Enter your selection: "
-            input = gets.chomp
-            clear!
-            main_menu
+            previous_orders
         when "2"
             clear!
             main_menu
