@@ -1,6 +1,7 @@
 
 
 OrderItem.destroy_all
+
 User.destroy_all
 MenuItem.destroy_all
 
