@@ -109,9 +109,9 @@ class Cli
         clear!
         case input
         when "1"
-            change_order
+            @current_user.change_order
         when "2"
-            delete_previous_order
+            @current_user.delete_previous_order
         when "3"
             main_menu
         end
