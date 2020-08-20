@@ -109,13 +109,19 @@ class Cli
         clear!
         case input
         when "1"
-            # menu_items
-            # print "Enter new order_item:"
-            # replace = gets.chomp
-            # OrderItem.update(song_id, name: replace)
-            # @current_user.change_order
+            MenuItem.all.each do |menu_item_instance|
+                menu_item_instance.display #def in menu_item.rb
+                end
+            print "Enter new order_item:"
+            replace = gets.chomp
+            OrderItem.update()
+            @current_user.change_order
+            @current_user.reload
+            previous_orders
         when "2"
-            # @current_user.delete_previous_order
+            @current_user.delete_previous_order
+            @current_user.reload
+            main_menu
         when "3"
             main_menu
         end
@@ -132,6 +138,7 @@ class Cli
         item = MenuItem.find_by(name: input)
         OrderItem.create(menu_item_id: item.id, user_id: @current_user.id)
         clear!
+        @current_user.reload
         order_menu
     end
 
