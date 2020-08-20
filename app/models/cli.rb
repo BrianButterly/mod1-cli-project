@@ -109,9 +109,13 @@ class Cli
         clear!
         case input
         when "1"
-            @current_user.change_order
+            # menu_items
+            # print "Enter new order_item:"
+            # replace = gets.chomp
+            # OrderItem.update(song_id, name: replace)
+            # @current_user.change_order
         when "2"
-            @current_user.delete_previous_order
+            # @current_user.delete_previous_order
         when "3"
             main_menu
         end
