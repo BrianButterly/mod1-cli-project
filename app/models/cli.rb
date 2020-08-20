@@ -50,32 +50,26 @@ class Cli
                 print "Enter your selection: "
                 input = gets.chomp
                 clear!
+         case input       
+            when "1"
+                MenuItem.all.each do |menu_item_instance|
+                menu_item_instance.display
+                end
+                print "Enter your selection: "
+                input = gets.chomp
+                item = MenuItem.find_by(name: input)
+                OrderItem.create(menu_item_id: item.id, user_id: @current_user.id)
+                clear!
+                profile
+            end
         end
-        # case input
-        #     when "1"
-        #         MenuItem.all.each do |menu_item_instance|
-        #         menu_item_instance.display
-        #         end
-        #         print "Enter your selection: "
-        #         input = gets.chomp
-        #         item = MenuItem.find_by(name: input)
-        #         OrderItem.create(menu_item_id: item.id, user_id: @current_user.id)
-        # end
     end     
-
+    
     def profile
         puts "#{@current_user.name}'s Profile 🌮 Page"
         puts "1. Previous orders"
         
-        # # puts "Remove order item."
-        # # puts "Here's a list of your order: "
-        # OrderItem.all.each do |order|
-        # puts "#{@current_user.view_order}."
-        # end
-        # # puts "Please enter order item ID"
-        # # order_item_id = gets.chomp
-        # OrderItem.destroy(order_item_id: order_item.id, user_id: @current_user.id)
-    
+        
         puts "2. Exit🚪"
         print "Enter your selection: "
         input = gets.chomp
@@ -95,7 +89,28 @@ class Cli
             clear!
             main_menu
         end
-end
-    
+    end
+    # def make_order 
+    #     case input       
+    #         when "1"
+    #             MenuItem.all.each do |menu_item_instance|
+    #             menu_item_instance.display
+    #             end
+    #             print "Enter your selection: "
+    #             input = gets.chomp
+    #             item = MenuItem.find_by(name: input)
+    #             OrderItem.create(menu_item_id: item.id, user_id: @current_user.id)
+    #     end
+    # end
 end # End of class
 
+
+
+# # puts "Remove order item."
+# # puts "Here's a list of your order: "
+# OrderItem.all.each do |order|
+# puts "#{@current_user.view_order}."
+# end
+# # puts "Please enter order item ID"
+# # order_item_id = gets.chomp
+# OrderItem.destroy(order_item_id: order_item.id, user_id: @current_user.id)
