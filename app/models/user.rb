@@ -4,13 +4,6 @@ class User < ActiveRecord::Base
     has_many :menu_items, through: :order_items
 
 
-    # def over_20
-    #    self.menu_items. select do |menu_item_instance|
-    #     menu_item_instance 
-    #     #binding.pry
-    #    end
-    # end
-
     #view their order(Read)
     def view_order
      user_past_foods = self.order_items.map do |order_item_instance|
@@ -20,9 +13,16 @@ class User < ActiveRecord::Base
         user_past_foods.join(", ") #how to remove quotes?
     end
 
-    #change their order (Update)
-    # def change_order
-    #     binding.pry
-    # end
+    def delete_previous_order
+        OrderItem.find_by(user_id: @current_user.id, menu_item_id: item.id)
+        order_item.id 
+        order_item.destroy
+    end
+
+    def change_order(order_id, new_menu_id)
+        order_to_update = OrderItem.find(order_id)
+        order_to_update.menu_item_id = new_menu_id
+        order_to_update.update
+    end
 
 end#end of class
