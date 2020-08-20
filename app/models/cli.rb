@@ -43,7 +43,9 @@ class Cli
         clear!
         case input
         when "1"
+            change_order
         when "2"
+            delete_previous_order
         when "3"
             main_menu
         end
@@ -124,16 +126,10 @@ class Cli
                 puts "🥩🍔🍗 Stay Funky 🍗🍔🥩"
                 puts
         end
-    end     
+    end
+    
+    
+    
 end # End of class
 
 
-
-# # puts "Remove order item."
-# # puts "Here's a list of your order: "
-# OrderItem.all.each do |order|
-# puts "#{@current_user.view_order}."
-# end
-# # puts "Please enter order item ID"
-# # order_item_id = gets.chomp
-# OrderItem.destroy(order_item_id: order_item.id, user_id: @current_user.id)
