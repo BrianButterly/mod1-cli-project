@@ -9,7 +9,7 @@
 #                                       JOIN OUR APP TODAY!!
 
 ## 👨🏻‍💻User will be able to:
-* Make an account
+* Make an account                                   der
 * Browse our menu items
 * View the prices of our delicious food
 * Make an order 
