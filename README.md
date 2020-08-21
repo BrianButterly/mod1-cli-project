@@ -19,10 +19,10 @@
 ___________________________________
 ## 💻 All you have to do:
 1. Open your terminal
-2. Type in: git clone git@github.com:BrianButterly/mod1-cli-project.git
-3. Type in: cd mod1-cli-project.git
-4. Once you get to your VS code, type in: bundle install
-5. Once installed, type in: ruby run.rb
+2. Git clone git@github.com:BrianButterly/mod1-cli-project.git
+3. Type: cd mod1-cli-project.
+4. Type: bundle install
+5. Once installed, type: ruby run.rb
 6. Follow the commands
 ___________________________________
 ### Creators:
